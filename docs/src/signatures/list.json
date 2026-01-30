@@ -1,0 +1,247 @@
+{
+  "type": "list",
+  "definitions": {
+    "remove": {
+      "id": "remove",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "arguments": [
+        {
+          "label": "index",
+          "type": "number"
+        }
+      ],
+      "returns": [
+        "null"
+      ]
+    },
+    "insert": {
+      "id": "insert",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "arguments": [
+        {
+          "label": "index",
+          "type": "number"
+        },
+        {
+          "label": "value",
+          "type": "any"
+        }
+      ],
+      "returns": [
+        "list"
+      ]
+    },
+    "push": {
+      "id": "push",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "arguments": [
+        {
+          "label": "value",
+          "type": "any"
+        }
+      ],
+      "returns": [
+        "list"
+      ]
+    },
+    "pop": {
+      "id": "pop",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returns": [
+        "any"
+      ]
+    },
+    "pull": {
+      "id": "pull",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returns": [
+        "any"
+      ]
+    },
+    "shuffle": {
+      "id": "shuffle",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returns": [
+        "null"
+      ]
+    },
+    "reverse": {
+      "id": "reverse",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returns": [
+        "null"
+      ]
+    },
+    "sum": {
+      "id": "sum",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returns": [
+        "number"
+      ]
+    },
+    "hasIndex": {
+      "id": "hasIndex",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "arguments": [
+        {
+          "label": "index",
+          "type": "number"
+        }
+      ],
+      "returnVariations": [
+        0,
+        1
+      ],
+      "returns": [
+        "number"
+      ]
+    },
+    "indexOf": {
+      "id": "indexOf",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "arguments": [
+        {
+          "label": "value",
+          "type": "any"
+        },
+        {
+          "label": "offset",
+          "type": "number",
+          "opt": true
+        }
+      ],
+      "returns": [
+        "number",
+        "null"
+      ]
+    },
+    "sort": {
+      "id": "sort",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "arguments": [
+        {
+          "label": "key",
+          "type": "any"
+        },
+        {
+          "label": "ascending",
+          "type": "number",
+          "default": {
+            "type": "number",
+            "value": 1
+          }
+        }
+      ],
+      "returns": [
+        "list"
+      ]
+    },
+    "join": {
+      "id": "join",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "arguments": [
+        {
+          "label": "delimiter",
+          "type": "string"
+        }
+      ],
+      "returns": [
+        "string"
+      ]
+    },
+    "indexes": {
+      "id": "indexes",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returns": [
+        {
+          "type": "list",
+          "valueType": "number"
+        }
+      ]
+    },
+    "len": {
+      "id": "len",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returns": [
+        "number"
+      ]
+    },
+    "values": {
+      "id": "values",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returns": [
+        "list"
+      ]
+    },
+    "replace": {
+      "id": "replace",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "arguments": [
+        {
+          "label": "oldVal",
+          "type": "any"
+        },
+        {
+          "label": "newVal",
+          "type": "any"
+        },
+        {
+          "label": "maxCount",
+          "type": "number",
+          "opt": true
+        }
+      ],
+      "returns": [
+        "list"
+      ]
+    }
+  }
+}

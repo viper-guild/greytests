@@ -1,0 +1,58 @@
+{
+  "type": "ftpShell",
+  "extends": "map",
+  "definitions": {
+    "host_computer": {
+      "id": "host_computer",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returns": [
+        "ftpComputer"
+      ]
+    },
+    "scp": {
+      "id": "scp",
+      "type": "function",
+      "tags": [
+        "method",
+        "ssh incompatible"
+      ],
+      "arguments": [
+        {
+          "label": "sourceFile",
+          "type": "string"
+        },
+        {
+          "label": "destinationFolder",
+          "type": "string"
+        },
+        {
+          "label": "remoteShell",
+          "type": "shell"
+        },
+        {
+          "label": "isUpload",
+          "type": "number",
+          "default": {
+            "type": "number",
+            "value": 0
+          }
+        }
+      ],
+      "returnVariations": [
+        "${sourceFile} not found",
+        "${destinationFolder} not found",
+        "${destinationFolder} it's not a folder",
+        "!GreyInterpreter.CheckScpUpload",
+        1
+      ],
+      "returns": [
+        "number",
+        "string",
+        "null"
+      ]
+    }
+  }
+}

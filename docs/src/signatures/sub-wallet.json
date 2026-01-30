@@ -1,0 +1,168 @@
+{
+  "type": "subWallet",
+  "extends": "map",
+  "definitions": {
+    "get_balance": {
+      "id": "get_balance_subwallet",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returnVariations": [
+        "get_balance: The account does not exist.",
+        "Unknown error: Unable to access to local computer",
+        "No internet access."
+      ],
+      "returns": [
+        "number",
+        "string"
+      ]
+    },
+    "set_info": {
+      "id": "set_info",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "arguments": [
+        {
+          "label": "info",
+          "type": "string"
+        }
+      ],
+      "returnVariations": [
+        "Error: exceeded maximum of 256 characters",
+        "Unknown error: Unable to access to local computer",
+        "No internet access.",
+        "!BlockchainSystem.SetInfoSubWallet",
+        1
+      ],
+      "returns": [
+        "number",
+        "string"
+      ]
+    },
+    "get_info": {
+      "id": "get_info",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returnVariations": [
+        "Unknown error: Unable to access to local computer",
+        "No internet access.",
+        "!BlockchainSystem.GetInfoSubWallet"
+      ],
+      "returns": [
+        "string"
+      ]
+    },
+    "delete": {
+      "id": "delete_subwallet",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returnVariations": [
+        "Unknown error: Unable to access to local computer",
+        "No internet access.",
+        1,
+        0
+      ],
+      "returns": [
+        "string",
+        "number"
+      ]
+    },
+    "get_user": {
+      "id": "get_user",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returnVariations": [
+        "Unknown error: Unable to access to local computer",
+        "No internet access."
+      ],
+      "returns": [
+        "string"
+      ]
+    },
+    "last_transaction": {
+      "id": "last_transaction",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returnVariations": [
+        "Unknown error: Unable to access to local computer",
+        "No internet access.",
+        0
+      ],
+      "returns": [
+        "list",
+        "number",
+        "string"
+      ]
+    },
+    "mining": {
+      "id": "mining",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returnVariations": [
+        "Unknown error: Unable to access to local computer",
+        "No internet access.",
+        "all existing coins of ${coinName} have been mined.",
+        "Only one mining process is allowed.",
+        "Error: GPU is damaged. Unable to start the mining process.",
+        "Error: GPU returned corrupted data while performing floating point tests. Unable to start the mining process.",
+        "Hardware error",
+        1
+      ],
+      "returns": [
+        "number",
+        "string"
+      ]
+    },
+    "check_password": {
+      "id": "check_password",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "arguments": [
+        {
+          "label": "password",
+          "type": "string"
+        }
+      ],
+      "returnVariations": [
+        "Unknown error: Unable to access to local computer",
+        "No internet access.",
+        "login_subwallet: the account does not exist.",
+        1,
+        0
+      ],
+      "returns": [
+        "number",
+        "string"
+      ]
+    },
+    "wallet_username": {
+      "id": "wallet_username",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returnVariations": [
+        "Unknown error: Unable to access to local computer",
+        "No internet access."
+      ],
+      "returns": [
+        "string"
+      ]
+    }
+  }
+}

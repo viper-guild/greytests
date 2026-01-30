@@ -1,0 +1,69 @@
+{
+  "$meta": {
+    "description": "A `netSession` object can be obtained by using [net_use](#METAXPLOIT_NET_USE). The `classID` used for this object is `\"NetSession\"`."
+  },
+  "dump_lib": {
+    "description": "Returns the `metaLib` associated with the remote service. For example if the `metaxpoit` method `net_use` was used on a ssh port it will return the `metaLib` related to the ssh service. In case the port was zero is will return a `metaLib` related to the kernel router.",
+    "example": [
+      "metax = include_lib(\"/lib/metaxploit.so\")",
+      "ports = get_router(\"1.1.1.1\").used_ports",
+      "netSession = metax.net_use(\"1.1.1.1\", ports[0].port_number)",
+      "metaLib = netSession.dump_lib",
+      "print(\"Library: \" + metaLib.lib_name + \" - \" + metaLib.version + \" on port \" + ports[0].port_number)"
+    ]
+  },
+  "get_num_conn_gateway": {
+    "description": "Returns the number of devices using this router as a gateway. If you obtained your `netSession` from a computer, it will fetch and return the value from its gateway router.",
+    "example": [
+      "metax = include_lib(\"/lib/metaxploit.so\")",
+      "ports = get_router(\"1.1.1.1\").used_ports",
+      "netSession = metax.net_use(\"1.1.1.1\", ports[0].port_number)",
+      "print(\"Gateway clients: \" + netSession.get_num_conn_gateway)"
+    ]
+  },
+  "get_num_portforward": {
+    "description": "Returns the number of ports forwarded by this router. If you obtained your `netSession` from a computer, it will fetch and return the value from its gateway router.",
+    "example": [
+      "metax = include_lib(\"/lib/metaxploit.so\")",
+      "ports = get_router(\"1.1.1.1\").used_ports",
+      "netSession = metax.net_use(\"1.1.1.1\", ports[0].port_number)",
+      "print(\"Port forwards: \" + netSession.get_num_portforward)"
+    ]
+  },
+  "get_num_users": {
+    "description": "Returns the number of user accounts on the system.",
+    "example": [
+      "metax = include_lib(\"/lib/metaxploit.so\")",
+      "ports = get_router(\"1.1.1.1\").used_ports",
+      "netSession = metax.net_use(\"1.1.1.1\", ports[0].port_number)",
+      "print(\"User accounts: \" + netSession.get_num_users)"
+    ]
+  },
+  "is_any_active_user": {
+    "description": "Returns a `number`. If there is an active user on the system it will be one. Otherwise, it will be zero.",
+    "example": [
+      "metax = include_lib(\"/lib/metaxploit.so\")",
+      "ports = get_router(\"1.1.1.1\").used_ports",
+      "netSession = metax.net_use(\"1.1.1.1\", ports[0].port_number)",
+      "print(\"User Active?: \" + netSession.is_any_active_user)"
+    ]
+  },
+  "is_root_active_user": {
+    "description": "Returns a `number`. If there is an active root on the system it will be one. Otherwise, it will be zero.",
+    "example": [
+      "metax = include_lib(\"/lib/metaxploit.so\")",
+      "ports = get_router(\"1.1.1.1\").used_ports",
+      "netSession = metax.net_use(\"1.1.1.1\", ports[0].port_number)",
+      "print(\"Root Active?: \" + netSession.is_root_active_user)"
+    ]
+  },
+  "flood_connection": {
+    "description": "Initiates a DDoS attack targeting the computer associated with the currently active `netSession` object. To successfully force a reboot, there must be at least 4 concurrent `flood_connection` calls for every 1 unit of net speed on the target computer. Keep in mind that these calls need to come from different IPs. So for example PackS would require 12 active `flood_connection` calls. If the threshold is met, the target computer will be forced to reboot, and the terminal will output: `\"remote connection interrupted\"`. This method always returns `null` and only prints a message upon a successful attack.",
+    "example": [
+      "metax = include_lib(\"/lib/metaxploit.so\")",
+      "ports = get_router(\"1.1.1.1\").used_ports",
+      "netSession = metax.net_use(\"1.1.1.1\", ports[0].port_number)",
+      "netSession.flood_connection"
+    ]
+  }
+}

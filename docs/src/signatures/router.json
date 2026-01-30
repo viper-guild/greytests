@@ -1,0 +1,150 @@
+{
+  "type": "router",
+  "extends": "map",
+  "definitions": {
+    "device_ports": {
+      "id": "device_ports",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "arguments": [
+        {
+          "label": "ip",
+          "type": "string"
+        }
+      ],
+      "returns": [
+        "string",
+        {
+          "type": "list",
+          "valueType": "port"
+        },
+        "null"
+      ]
+    },
+    "devices_lan_ip": {
+      "id": "devices_lan_ip",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returns": [
+        {
+          "type": "list",
+          "valueType": "string"
+        }
+      ]
+    },
+    "bssid_name": {
+      "id": "bssid_name",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returns": [
+        "string"
+      ]
+    },
+    "essid_name": {
+      "id": "essid_name",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returns": [
+        "string"
+      ]
+    },
+    "firewall_rules": {
+      "id": "firewall_rules",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returns": [
+        {
+          "type": "list",
+          "valueType": "string"
+        }
+      ]
+    },
+    "kernel_version": {
+      "id": "kernel_version",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returns": [
+        "string"
+      ]
+    },
+    "local_ip": {
+      "id": "local_ip",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returns": [
+        "string"
+      ]
+    },
+    "public_ip": {
+      "id": "public_ip",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returns": [
+        "string"
+      ]
+    },
+    "used_ports": {
+      "id": "used_ports",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returns": [
+        {
+          "type": "list",
+          "valueType": "port"
+        }
+      ]
+    },
+    "ping_port": {
+      "id": "ping_port",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "arguments": [
+        {
+          "label": "port",
+          "type": "number"
+        }
+      ],
+      "returns": [
+        "port",
+        "null"
+      ]
+    },
+    "port_info": {
+      "id": "port_info",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "arguments": [
+        {
+          "label": "port",
+          "type": "port"
+        }
+      ],
+      "returns": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

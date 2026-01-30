@@ -1,0 +1,113 @@
+{
+  "type": "metaLib",
+  "extends": "map",
+  "definitions": {
+    "overflow": {
+      "id": "overflow",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "arguments": [
+        {
+          "label": "memoryAddress",
+          "type": "string"
+        },
+        {
+          "label": "unsecZone",
+          "type": "string"
+        },
+        {
+          "label": "optArgs",
+          "type": "string",
+          "default": {
+            "type": "string",
+            "value": ""
+          }
+        }
+      ],
+      "returnVariations": [
+        "Exploit failed: the remote server has been temporarily disabled due to non-payment",
+        0,
+        1
+      ],
+      "returns": [
+        "string",
+        "number",
+        "shell",
+        "computer",
+        "file",
+        "null"
+      ]
+    },
+    "version": {
+      "id": "version",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returns": [
+        "string"
+      ]
+    },
+    "lib_name": {
+      "id": "lib_name",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returns": [
+        "string"
+      ]
+    },
+    "debug_tools": {
+      "id": "debug_tools",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "arguments": [
+        {
+          "label": "user",
+          "type": "string"
+        },
+        {
+          "label": "password",
+          "type": "string"
+        }
+      ],
+      "returnVariations": [
+        "Error: The file must be a library",
+        "Error: Incorrect password"
+      ],
+      "returns": [
+        "string",
+        "debugLibrary",
+        "null"
+      ]
+    },
+    "is_patched": {
+      "id": "is_patched",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "arguments": [
+        {
+          "label": "getdate",
+          "type": "number"
+        }
+      ],
+      "returnVariations": [
+        "Error: The file must be a library",
+        0,
+        1
+      ],
+      "returns": [
+        "number",
+        "string",
+        "null"
+      ]
+    }
+  }
+}

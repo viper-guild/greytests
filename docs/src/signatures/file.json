@@ -1,0 +1,493 @@
+{
+  "type": "file",
+  "extends": "map",
+  "definitions": {
+    "chmod": {
+      "id": "chmod",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "arguments": [
+        {
+          "label": "perms",
+          "type": "string",
+          "default": {
+            "type": "string",
+            "value": ""
+          }
+        },
+        {
+          "label": "isRecursive",
+          "type": "number",
+          "default": {
+            "type": "number",
+            "value": 0
+          }
+        }
+      ],
+      "returnVariations": [
+        "${path} not found",
+        "!FileSystem.UpdatePermisos"
+      ],
+      "returns": [
+        "string"
+      ]
+    },
+    "copy": {
+      "id": "copy",
+      "type": "function",
+      "tags": [
+        "method",
+        "ssh incompatible"
+      ],
+      "arguments": [
+        {
+          "label": "path",
+          "type": "string",
+          "default": {
+            "type": "string",
+            "value": ""
+          }
+        },
+        {
+          "label": "name",
+          "type": "string",
+          "default": {
+            "type": "string",
+            "value": ""
+          }
+        }
+      ],
+      "returnVariations": [
+        "Error: only alphanumeric allowed as newname",
+        "!PlayerUtils.MoverFichero",
+        1
+      ],
+      "returns": [
+        "string",
+        "number",
+        "null"
+      ]
+    },
+    "move": {
+      "id": "move",
+      "type": "function",
+      "tags": [
+        "method",
+        "ssh incompatible"
+      ],
+      "arguments": [
+        {
+          "label": "path",
+          "type": "string",
+          "default": {
+            "type": "string",
+            "value": ""
+          }
+        },
+        {
+          "label": "fileName",
+          "type": "string",
+          "default": {
+            "type": "string",
+            "value": ""
+          }
+        }
+      ],
+      "returnVariations": [
+        "Error: only alphanumeric allowed as newname",
+        "!PlayerUtils.MoverFichero",
+        1
+      ],
+      "returns": [
+        "string",
+        "number",
+        "null"
+      ]
+    },
+    "symlink": {
+      "id": "symlink",
+      "type": "function",
+      "tags": [
+        "method",
+        "ssh incompatible"
+      ],
+      "arguments": [
+        {
+          "label": "path",
+          "type": "string",
+          "default": {
+            "type": "string",
+            "value": ""
+          }
+        },
+        {
+          "label": "newName",
+          "type": "string",
+          "default": {
+            "type": "string",
+            "value": ""
+          }
+        }
+      ],
+      "returnVariations": [
+        "Error: only alphanumeric allowed as newname",
+        "Error: invalid path",
+        "The file already exists",
+        "!PlayerUtils.CrearCarpeta",
+        "!PlayerUtils.CrearArchivo",
+        1
+      ],
+      "returns": [
+        "string",
+        "number",
+        "null"
+      ]
+    },
+    "rename": {
+      "id": "rename",
+      "type": "function",
+      "tags": [
+        "method",
+        "ssh incompatible"
+      ],
+      "arguments": [
+        {
+          "label": "name",
+          "type": "string",
+          "default": {
+            "type": "string",
+            "value": ""
+          }
+        }
+      ],
+      "returnVariations": [
+        "Error: only alphanumeric allowed as newname",
+        "Error: name cannot exceed the limit of 128 characters.",
+        "!PlayerUtils.RenameFichero",
+        0
+      ],
+      "returns": [
+        "string",
+        "number"
+      ]
+    },
+    "path": {
+      "id": "path",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "arguments": [
+        {
+          "label": "symlinkOrigPath",
+          "type": "number",
+          "default": {
+            "type": "number",
+            "value": 0
+          }
+        }
+      ],
+      "returns": [
+        "string"
+      ]
+    },
+    "is_folder": {
+      "id": "is_folder",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returnVariations": [
+        1,
+        0
+      ],
+      "returns": [
+        "number",
+        "null"
+      ]
+    },
+    "parent": {
+      "id": "parent",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returns": [
+        "file",
+        "null"
+      ]
+    },
+    "name": {
+      "id": "name",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returns": [
+        "string",
+        "null"
+      ]
+    },
+    "allow_import": {
+      "id": "allow_import",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returns": [
+        "number"
+      ]
+    },
+    "get_content": {
+      "id": "get_content",
+      "type": "function",
+      "tags": [
+        "method",
+        "ssh incompatible"
+      ],
+      "returnVariations": [
+        "Error: can't find the computer of this file",
+        "can't open ${filepath}. Binary file."
+      ],
+      "returns": [
+        "string",
+        "null"
+      ]
+    },
+    "set_content": {
+      "id": "set_content",
+      "type": "function",
+      "tags": [
+        "method",
+        "ssh incompatible"
+      ],
+      "arguments": [
+        {
+          "label": "content",
+          "type": "string",
+          "default": {
+            "type": "string",
+            "value": ""
+          }
+        }
+      ],
+      "returnVariations": [
+        "I can't save the file. The maximum of 160,000 characters has been exceeded.",
+        "set_content: unable to use this method in encryption configuration",
+        "can't open ${filepath}. Binary file.",
+        1
+      ],
+      "returns": [
+        "string",
+        "number",
+        "null"
+      ]
+    },
+    "is_binary": {
+      "id": "is_binary",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returnVariations": [
+        1,
+        0
+      ],
+      "returns": [
+        "number",
+        "null"
+      ]
+    },
+    "is_symlink": {
+      "id": "is_symlink",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returnVariations": [
+        1,
+        0
+      ],
+      "returns": [
+        "number",
+        "null"
+      ]
+    },
+    "has_permission": {
+      "id": "has_permission",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "arguments": [
+        {
+          "label": "perms",
+          "type": "string",
+          "default": {
+            "type": "string",
+            "value": ""
+          }
+        }
+      ],
+      "returnVariations": [
+        1,
+        0
+      ],
+      "returns": [
+        "number",
+        "null"
+      ]
+    },
+    "delete": {
+      "id": "delete",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returnVariations": [
+        "!PlayerUtils.RemoveFile"
+      ],
+      "returns": [
+        "string"
+      ]
+    },
+    "get_folders": {
+      "id": "get_folders",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returns": [
+        {
+          "type": "list",
+          "valueType": "file"
+        },
+        "null"
+      ]
+    },
+    "get_files": {
+      "id": "get_files",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returns": [
+        {
+          "type": "list",
+          "valueType": "file"
+        },
+        "null"
+      ]
+    },
+    "permissions": {
+      "id": "permissions",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returns": [
+        "string",
+        "null"
+      ]
+    },
+    "owner": {
+      "id": "owner",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returns": [
+        "string",
+        "null"
+      ]
+    },
+    "set_owner": {
+      "id": "set_owner",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "arguments": [
+        {
+          "label": "owner",
+          "type": "string",
+          "default": {
+            "type": "string",
+            "value": ""
+          }
+        },
+        {
+          "label": "recursive",
+          "type": "number",
+          "default": {
+            "type": "number",
+            "value": 0
+          }
+        }
+      ],
+      "returnVariations": [
+        "Permission denied"
+      ],
+      "returns": [
+        "string",
+        "null"
+      ]
+    },
+    "group": {
+      "id": "group",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returns": [
+        "string",
+        "null"
+      ]
+    },
+    "set_group": {
+      "id": "set_group",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "arguments": [
+        {
+          "label": "group",
+          "type": "string",
+          "default": {
+            "type": "string",
+            "value": ""
+          }
+        },
+        {
+          "label": "recursive",
+          "type": "number",
+          "default": {
+            "type": "number",
+            "value": 0
+          }
+        }
+      ],
+      "returnVariations": [
+        "Permission denied"
+      ],
+      "returns": [
+        "string",
+        "null"
+      ]
+    },
+    "size": {
+      "id": "size",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returns": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "type": "service",
+  "extends": "map",
+  "definitions": {
+    "install_service": {
+      "id": "install_service",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returnVariations": [
+        "Denied. Only root user can install this service.",
+        1
+      ],
+      "returns": [
+        "number",
+        "string"
+      ]
+    },
+    "start_service": {
+      "id": "start_service",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returnVariations": [
+        "Denied. Only root user can install this service.",
+        "<color=yellow>${reason} The chat service can't be accessed.</color>",
+        1
+      ],
+      "returns": [
+        "number",
+        "string"
+      ]
+    },
+    "stop_service": {
+      "id": "stop_service",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returnVariations": [
+        "Denied. Only root user can install this service.",
+        1,
+        0
+      ],
+      "returns": [
+        "number",
+        "string"
+      ]
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "type": "ctfEvent",
+  "extends": "map",
+  "definitions": {
+    "get_description": {
+      "id": "get_description",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returns": [
+        "string"
+      ]
+    },
+    "get_template": {
+      "id": "get_template",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returns": [
+        "string"
+      ]
+    },
+    "player_success": {
+      "id": "player_success",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returnVariations": [
+        0,
+        1
+      ],
+      "returns": [
+        "number"
+      ]
+    },
+    "get_creator_name": {
+      "id": "get_creator_name",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returns": [
+        "string"
+      ]
+    },
+    "get_mail_content": {
+      "id": "get_mail_content",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returns": [
+        "string"
+      ]
+    }
+  }
+}

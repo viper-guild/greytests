@@ -1,0 +1,210 @@
+{
+  "type": "shell",
+  "extends": "map",
+  "definitions": {
+    "host_computer": {
+      "id": "host_computer",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returns": [
+        "computer"
+      ]
+    },
+    "start_terminal": {
+      "id": "start_terminal",
+      "type": "function",
+      "tags": [
+        "method",
+        "ssh incompatible"
+      ],
+      "returns": [
+        "null"
+      ]
+    },
+    "build": {
+      "id": "build",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "arguments": [
+        {
+          "label": "pathSource",
+          "type": "string"
+        },
+        {
+          "label": "pathBinary",
+          "type": "string"
+        },
+        {
+          "label": "allowImport",
+          "type": "number",
+          "default": {
+            "type": "number",
+            "value": 0
+          }
+        }
+      ],
+      "returnVariations": [
+        "pathSource and pathBinary can't be empty",
+        "Invalid shell",
+        "Unknown error: Unable to access to local computer",
+        "Can't find ${pathSource}",
+        "Can't find ${pathBinary}",
+        "Can't access to ${pathSource}. Permission denied.",
+        "Can't build ${pathSource}. Binary file",
+        "Can't create binary in ${pathBinary}. Permission denied.",
+        "Can't build ${pathSource}. Invalid extension.",
+        "Can't compile. Source code is empty"
+      ],
+      "returns": [
+        "string"
+      ]
+    },
+    "connect_service": {
+      "id": "connect_service",
+      "type": "function",
+      "tags": [
+        "method",
+        "ssh incompatible"
+      ],
+      "arguments": [
+        {
+          "label": "ip",
+          "type": "string"
+        },
+        {
+          "label": "port",
+          "type": "number"
+        },
+        {
+          "label": "user",
+          "type": "string"
+        },
+        {
+          "label": "password",
+          "type": "string"
+        },
+        {
+          "label": "service",
+          "type": "string",
+          "default": {
+            "type": "string",
+            "value": "ssh"
+          }
+        }
+      ],
+      "returnVariations": [
+        "Unknown error: Unable to access to local computer",
+        "Direct connections cannot be made outside of this network",
+        "!PlayerUtils.ConnectToService",
+        "!PlayerUtils.ConnectComputer",
+        "!Networking.CheckServiceOnline"
+      ],
+      "returns": [
+        "shell",
+        "ftpShell",
+        "string",
+        "null"
+      ]
+    },
+    "launch": {
+      "id": "launch",
+      "type": "function",
+      "tags": [
+        "method",
+        "ssh incompatible"
+      ],
+      "arguments": [
+        {
+          "label": "program",
+          "type": "string"
+        },
+        {
+          "label": "params",
+          "type": "string",
+          "default": {
+            "type": "string",
+            "value": ""
+          }
+        }
+      ],
+      "returnVariations": [
+        "Invalid shell",
+        "Can't find computer",
+        1,
+        0
+      ],
+      "returns": [
+        "string",
+        "number"
+      ]
+    },
+    "ping": {
+      "id": "ping",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "arguments": [
+        {
+          "label": "ip",
+          "type": "string"
+        }
+      ],
+      "returnVariations": [
+        "ping: invalid ip address",
+        1,
+        0
+      ],
+      "returns": [
+        "string",
+        "number"
+      ]
+    },
+    "scp": {
+      "id": "scp",
+      "type": "function",
+      "tags": [
+        "method",
+        "ssh incompatible"
+      ],
+      "arguments": [
+        {
+          "label": "file",
+          "type": "string"
+        },
+        {
+          "label": "folder",
+          "type": "string"
+        },
+        {
+          "label": "remoteShell",
+          "type": "shell"
+        },
+        {
+          "label": "isUpload",
+          "type": "number",
+          "default": {
+            "type": "number",
+            "value": 0
+          }
+        }
+      ],
+      "returnVariations": [
+        "${sourceFile} not found",
+        "${destinationFolder} not found",
+        "${destinationFolder} it's not a folder",
+        "!GreyInterpreter.CheckScpUpload",
+        1
+      ],
+      "returns": [
+        "number",
+        "string",
+        "null"
+      ]
+    }
+  }
+}
