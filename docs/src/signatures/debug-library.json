@@ -1,0 +1,106 @@
+{
+  "type": "debugLibrary",
+  "extends": "map",
+  "definitions": {
+    "scan": {
+      "id": "scan_debuglib",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returnVariations": [
+        "error: file not found",
+        "No potential issues have been found",
+        "Potential problems have been found in the following code:\n\n${callengeDescription}"
+      ],
+      "returns": [
+        "string"
+      ]
+    },
+    "apply_patch": {
+      "id": "apply_patch",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "arguments": [
+        {
+          "label": "path",
+          "type": "string"
+        }
+      ],
+      "returnVariations": [
+        "error: file not found",
+        "error: The file to apply the patch cannot be binary",
+        "error: The patch code is not correct.",
+        "The patch had already been applied.",
+        "The patch has been applied correctly."
+      ],
+      "returns": [
+        "string",
+        "null"
+      ]
+    },
+    "unit_testing": {
+      "id": "unit_testing",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "arguments": [
+        {
+          "label": "errorLines",
+          "type": {
+            "type": "list",
+            "valueType": "number"
+          }
+        }
+      ],
+      "returnVariations": [
+        "error: file not found",
+        "Test failed: No potential issues have been found",
+        "Starting testing in selected lines...\n${methods}\n\nNew vulnerability found: ${vulnerability}",
+        "Test failed: No errors have been found in one or more of the provided lines, or not all lines with errors have been provided."
+      ],
+      "returns": [
+        "string",
+        "null"
+      ]
+    },
+    "payload": {
+      "id": "payload",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "arguments": [
+        {
+          "label": "memZone",
+          "type": "string"
+        },
+        {
+          "label": "pathFile",
+          "type": "string",
+          "default": {
+            "type": "string",
+            "value": ""
+          }
+        }
+      ],
+      "returnVariations": [
+        "Error: The file must be a library",
+        "Error: The library is patched against this vulnerability.",
+        "Failed: No vulnerabilities have been found in the specified memory area.",
+        "Error acquiring partial object file. Unable to access to resource: ${pathFile}"
+      ],
+      "returns": [
+        "string",
+        {
+          "type": "list",
+          "valueType": "map"
+        },
+        "null"
+      ]
+    }
+  }
+}

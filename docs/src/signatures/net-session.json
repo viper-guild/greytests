@@ -1,0 +1,84 @@
+{
+  "type": "netSession",
+  "extends": "map",
+  "definitions": {
+    "dump_lib": {
+      "id": "dump_lib",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returns": [
+        "metaLib"
+      ]
+    },
+    "get_num_conn_gateway": {
+      "id": "get_num_conn_gateway",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returns": [
+        "number"
+      ]
+    },
+    "get_num_portforward": {
+      "id": "get_num_portforward",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returns": [
+        "number"
+      ]
+    },
+    "get_num_users": {
+      "id": "get_num_users",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returns": [
+        "number"
+      ]
+    },
+    "is_any_active_user": {
+      "id": "is_any_active_user",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returnVariations": [
+        0,
+        1
+      ],
+      "returns": [
+        "number"
+      ]
+    },
+    "is_root_active_user": {
+      "id": "is_root_active_user",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returnVariations": [
+        0,
+        1
+      ],
+      "returns": [
+        "number"
+      ]
+    },
+    "flood_connection": {
+      "id": "flood_connection",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returns": [
+        "null"
+      ]
+    }
+  }
+}

@@ -1,0 +1,224 @@
+{
+  "type": "blockchain",
+  "definitions": {
+    "coin_price": {
+      "id": "coin_price",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "arguments": [
+        {
+          "label": "coinName",
+          "type": "string"
+        }
+      ],
+      "returnVariations": [
+        "Unknown error: Unable to access to local computer",
+        "coin_price: No internet access.",
+        "coin_price: Coin does not exist."
+      ],
+      "returns": [
+        "null",
+        "string",
+        "number"
+      ]
+    },
+    "show_history": {
+      "id": "show_history",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "arguments": [
+        {
+          "label": "coinName",
+          "type": "string"
+        }
+      ],
+      "returnVariations": [
+        "Unknown error: Unable to access to local computer",
+        "show_history: No internet access."
+      ],
+      "returns": [
+        {
+          "type": "map",
+          "keyType": "number",
+          "valueType": "list"
+        },
+        "string",
+        "null"
+      ]
+    },
+    "amount_mined": {
+      "id": "amount_mined",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "arguments": [
+        {
+          "label": "coinName",
+          "type": "string"
+        }
+      ],
+      "returnVariations": [
+        "Unknown error: Unable to access to local computer",
+        "amount_mined: No internet access.",
+        "amount_mined: Coin does not exist."
+      ],
+      "returns": [
+        "string",
+        "number",
+        "null"
+      ]
+    },
+    "get_coin": {
+      "id": "get_coin",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "arguments": [
+        {
+          "label": "coinName",
+          "type": "string"
+        },
+        {
+          "label": "user",
+          "type": "string"
+        },
+        {
+          "label": "password",
+          "type": "string"
+        }
+      ],
+      "returnVariations": [
+        "Unknown error: Unable to access to local computer",
+        "get_coin: No internet access.",
+        "get_coin: Incorrect user/password"
+      ],
+      "returns": [
+        "string",
+        "coin",
+        "null"
+      ]
+    },
+    "get_coin_name": {
+      "id": "get_coin_name",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "arguments": [
+        {
+          "label": "user",
+          "type": "string"
+        },
+        {
+          "label": "password",
+          "type": "string"
+        }
+      ],
+      "returnVariations": [
+        "Unknown error: Unable to access to local computer",
+        "get_coin_name: No internet access.",
+        "get_coin_name: Incorrect user/password",
+        "get_coin_name: No currency has been found"
+      ],
+      "returns": [
+        "string",
+        "null"
+      ]
+    },
+    "login_wallet": {
+      "id": "login_wallet",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "arguments": [
+        {
+          "label": "user",
+          "type": "string"
+        },
+        {
+          "label": "password",
+          "type": "string"
+        }
+      ],
+      "returnVariations": [
+        "Unknown error: Unable to access to local computer",
+        "login_wallet: No internet access.",
+        "login_wallet: Account not found or incorrect password"
+      ],
+      "returns": [
+        "string",
+        "wallet",
+        "null"
+      ]
+    },
+    "create_wallet": {
+      "id": "create_wallet",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "arguments": [
+        {
+          "label": "user",
+          "type": "string"
+        },
+        {
+          "label": "password",
+          "type": "string"
+        }
+      ],
+      "returnVariations": [
+        "Unknown error: Unable to access to local computer",
+        "create_wallet: No internet access.",
+        "Error: only alphanumeric allowed as name and password",
+        "create_wallet: name and password cannot exceed the 16 character limit.",
+        "Error: It is necessary to have a bank account to be able to create a wallet.",
+        "!BlockchainSystem.AddWallet"
+      ],
+      "returns": [
+        "string",
+        "wallet",
+        "null"
+      ]
+    },
+    "delete_coin": {
+      "id": "delete_coin",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "arguments": [
+        {
+          "label": "coinName",
+          "type": "string"
+        },
+        {
+          "label": "user",
+          "type": "string"
+        },
+        {
+          "label": "password",
+          "type": "string"
+        }
+      ],
+      "returnVariations": [
+        "Unknown error: Unable to access to local computer",
+        "delete_coin: No internet access.",
+        "!BlockchainSystem.RemoveCurrency",
+        1
+      ],
+      "returns": [
+        "number",
+        "string",
+        "null"
+      ]
+    }
+  }
+}

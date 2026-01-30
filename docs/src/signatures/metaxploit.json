@@ -1,0 +1,179 @@
+{
+  "type": "metaxploit",
+  "extends": "map",
+  "definitions": {
+    "load": {
+      "id": "load",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "arguments": [
+        {
+          "label": "path",
+          "type": "string"
+        }
+      ],
+      "returns": [
+        "metaLib",
+        "null"
+      ]
+    },
+    "net_use": {
+      "id": "net_use",
+      "type": "function",
+      "tags": [
+        "method",
+        "ssh incompatible"
+      ],
+      "arguments": [
+        {
+          "label": "ip",
+          "type": "string"
+        },
+        {
+          "label": "port",
+          "type": "number",
+          "default": {
+            "type": "number",
+            "value": 0
+          }
+        }
+      ],
+      "returns": [
+        "netSession",
+        "null"
+      ]
+    },
+    "rshell_client": {
+      "id": "rshell_client",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "arguments": [
+        {
+          "label": "ip",
+          "type": "string"
+        },
+        {
+          "label": "port",
+          "type": "number",
+          "default": {
+            "type": "number",
+            "value": 1222
+          }
+        },
+        {
+          "label": "processName",
+          "type": "string",
+          "default": {
+            "type": "string",
+            "value": "rshell_client"
+          }
+        }
+      ],
+      "returnVariations": [
+        "rshell_client: Invalid IP address",
+        "Error: only alphanumeric allowed as proccess name.",
+        "Error: proccess name cannot exceed the limit of 28 characters.",
+        "Error: ${programName} is a reserved process name",
+        "rshell_client: IP address not found: ${ip}",
+        "rshell_client: unable to find remote server at port ${port}",
+        "!Networking.CheckServiceOnline",
+        1
+      ],
+      "returns": [
+        "string",
+        "number",
+        "null"
+      ]
+    },
+    "rshell_server": {
+      "id": "rshell_server",
+      "type": "function",
+      "tags": [
+        "method",
+        "ssh incompatible"
+      ],
+      "returnVariations": [
+        "rshell_server: No internet connection",
+        "rshell_server: The service cannot be started on this network.",
+        "error: service rshelld is not running",
+        "error: rshell portforward is not configured correctly"
+      ],
+      "returns": [
+        "string",
+        {
+          "type": "list",
+          "valueType": "shell"
+        }
+      ]
+    },
+    "scan": {
+      "id": "scan",
+      "type": "function",
+      "tags": [
+        "method",
+        "ssh incompatible"
+      ],
+      "arguments": [
+        {
+          "label": "metaLib",
+          "type": "metaLib"
+        }
+      ],
+      "returns": [
+        {
+          "type": "list",
+          "valueType": "string"
+        },
+        "null"
+      ]
+    },
+    "scan_address": {
+      "id": "scan_address",
+      "type": "function",
+      "tags": [
+        "method",
+        "ssh incompatible"
+      ],
+      "arguments": [
+        {
+          "label": "metaLib",
+          "type": "metaLib"
+        },
+        {
+          "label": "memoryAddress",
+          "type": "string"
+        }
+      ],
+      "returns": [
+        "string",
+        "null"
+      ]
+    },
+    "sniffer": {
+      "id": "sniffer",
+      "type": "function",
+      "tags": [
+        "method",
+        "ssh incompatible"
+      ],
+      "arguments": [
+        {
+          "label": "saveEncSource",
+          "type": "number",
+          "default": {
+            "type": "number",
+            "value": 0
+          }
+        }
+      ],
+      "returns": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

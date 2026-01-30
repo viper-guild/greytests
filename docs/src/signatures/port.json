@@ -1,0 +1,40 @@
+{
+  "type": "port",
+  "extends": "map",
+  "definitions": {
+    "port_number": {
+      "id": "port_number",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returns": [
+        "number"
+      ]
+    },
+    "is_closed": {
+      "id": "is_closed",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returnVariations": [
+        0,
+        1
+      ],
+      "returns": [
+        "number"
+      ]
+    },
+    "get_lan_ip": {
+      "id": "get_lan_ip",
+      "type": "function",
+      "tags": [
+        "method"
+      ],
+      "returns": [
+        "string"
+      ]
+    }
+  }
+}
